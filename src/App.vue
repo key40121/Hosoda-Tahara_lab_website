@@ -1,9 +1,13 @@
 <template>
   <v-app>
     <v-app-bar color="teal darken-1" dark app clipped-left>
+
+      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+
       <v-toolbar-title>Hosoda and Tahara Laboratory</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
+
         <v-btn text @click="scrollTop(), goToTop()">トップページ</v-btn>
 
         <v-menu offset-y>
@@ -49,7 +53,7 @@
           </v-list>
         </v-menu>
 
-        <v-btn text>細田・田原研究室で学びたい方へ</v-btn>
+        <v-btn text to="/news">ニュース</v-btn>
         <v-btn text>For Foreigners</v-btn>
         <v-btn text>リンク</v-btn>
         
@@ -70,6 +74,37 @@
 
       </v-toolbar-items>
     </v-app-bar>
+    <v-navigation-drawer
+        v-model="drawer"
+        fixed
+        temporary
+      >
+        <v-list
+          nav
+          dense
+        >
+          <v-list-item-group>
+            <v-list-item>
+              <v-list-item-title>HOME</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>ABOUT</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>WORK</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>SERVICE</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>BLOG</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>ACCESS</v-list-item-title>
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
+      </v-navigation-drawer>
 
     <!-- This is a footer -->
     <v-footer color="teal darken-1" dark app>
@@ -101,7 +136,8 @@ export default {
       equipments: [
         '実験装置',
         '共有装置(学内専用)'
-      ]
+      ],
+      drawer: false,
     }
   },
   methods: {
@@ -115,7 +151,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+
+
 .v-enter {
   transform: translate(-100px, 0);
   opacity: 0;
@@ -136,6 +175,25 @@ export default {
 }
 .v-leave-active {
   transition: all .5s 0s ease;
+}
+
+.v-toolbar__title {
+  overflow: visible !important;
+  margin-right: 50px !important;
+}
+ 
+.v-app-bar__nav-icon {
+  @include display_pc {
+    display: none !important;
+  }
+}
+
+.v-tabs {
+  display: none;
+ 
+  @include display_pc {
+    display: block !important;
+  }
 }
 
 </style>
