@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar color="teal darken-1" dark app clipped-left>
 
-      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = true" class="d-none d-xs-block"></v-app-bar-nav-icon>
 
       <v-toolbar-title>Hosoda and Tahara Laboratory</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -54,7 +54,7 @@
         </v-menu>
 
         <v-btn text to="/news">ニュース</v-btn>
-        <v-btn text>For Foreigners</v-btn>
+        <v-btn text to="/for_foreigners">For Foreigners</v-btn>
         <v-btn text>リンク</v-btn>
         
         <v-menu offset-y>
@@ -78,6 +78,7 @@
         v-model="drawer"
         fixed
         temporary
+        class="d-none d-xs-block"
       >
         <v-list
           nav
@@ -182,18 +183,18 @@ export default {
   margin-right: 50px !important;
 }
  
-.v-app-bar__nav-icon {
-  @include display_pc {
-    display: none !important;
-  }
-}
+// .v-app-bar__nav-icon {
+//   @include display_pc {
+//     display: none !important;
+//   }
+// }
 
-.v-tabs {
-  display: none;
+// .v-tabs {
+//   display: none;
  
-  @include display_pc {
-    display: block !important;
-  }
-}
+//   @include display_pc {
+//     display: block !important;
+//   }
+// }
 
 </style>

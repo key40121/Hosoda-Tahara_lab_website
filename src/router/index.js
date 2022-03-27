@@ -38,6 +38,11 @@ const routes = [
     path:'/news',
     name: 'News',
     component: () => import('../views/News.vue')
+  },
+  {
+    path:'/for_foreigners',
+    name: 'ForForeigners',
+    component: () => import('../views/ForForeigners.vue')
   }
 ]
 
